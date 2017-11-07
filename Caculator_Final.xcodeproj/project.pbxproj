@@ -14,6 +14,7 @@
 		BD7158A21F92E1A900C55995 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD7158A01F92E1A900C55995 /* Main.storyboard */; };
 		BD7158A41F92E1A900C55995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7158A31F92E1A900C55995 /* Assets.xcassets */; };
 		BD7158A71F92E1A900C55995 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD7158A51F92E1A900C55995 /* LaunchScreen.storyboard */; };
+		BDBD3E8D1FB0A16D00734EB0 /* CurrencyExchanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBD3E8C1FB0A16D00734EB0 /* CurrencyExchanger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		BD7158A31F92E1A900C55995 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD7158A61F92E1A900C55995 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD7158A81F92E1A900C55995 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDBD3E8C1FB0A16D00734EB0 /* CurrencyExchanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchanger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				BD7158A81F92E1A900C55995 /* Info.plist */,
 				BD235D1E1F93C73500D37621 /* CaculatorBrain.swift */,
 				BD4387AB1FAF4FD0008240DF /* CurrencyViewController.swift */,
+				BDBD3E8C1FB0A16D00734EB0 /* CurrencyExchanger.swift */,
 			);
 			path = Caculator_Final;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				BD235D1F1F93C73500D37621 /* CaculatorBrain.swift in Sources */,
 				BD4387AC1FAF4FD0008240DF /* CurrencyViewController.swift in Sources */,
 				BD71589F1F92E1A900C55995 /* ViewController.swift in Sources */,
+				BDBD3E8D1FB0A16D00734EB0 /* CurrencyExchanger.swift in Sources */,
 				BD71589D1F92E1A900C55995 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
