@@ -31,7 +31,7 @@ class MLViewController: ViewController,UIImagePickerControllerDelegate,UINavigat
     @IBAction func detectClick(_ sender: UIButton) {
         displayLabel.text = "Start to analyze the photo ..."
         
-        let optionMenu = UIAlertController(title: nil,message: "Please choose your training model !", preferredStyle:.alert)
+        //let optionMenu = UIAlertController(title: nil,message: "Please choose your training model !", preferredStyle:.alert)
         
         if let processedImage = ImageProcessor.pixelBuffer(forImage: (photoImageView.image?.cgImage)!){
             guard let detectedImage = try? model.prediction(image: processedImage) else{
@@ -59,15 +59,16 @@ class MLViewController: ViewController,UIImagePickerControllerDelegate,UINavigat
             
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-        
-        let imageSize = selectedImg.size
+        var resizeImg = PhotoGalleryCropping().cropToSquare(image:selectedImg)
+        let imageSize = resizeImg.size
+        print(imageSize.width,imageSize.height)
         let widthRatio = targetSize.width / imageSize.width
         let heightRatio = targetSize.height / imageSize.height
         var newSize : CGSize
         if(widthRatio > heightRatio){
-            newSize = CGSize(width: heightRatio * imageSize.width , height: heightRatio * imageSize.height)
+            newSize = CGSize(width: widthRatio * imageSize.width , height: heightRatio * imageSize.height)
         }else{
-            newSize = CGSize(width: widthRatio * imageSize.width , height: widthRatio * imageSize.height)
+            newSize = CGSize(width: widthRatio * imageSize.width , height: heightRatio * imageSize.height)
         }
         var canvas = CGRect(x: 0, y: 0, width: targetSize.width, height: targetSize.height)
         

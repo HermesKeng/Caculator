@@ -19,6 +19,7 @@
 		BD7158A21F92E1A900C55995 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD7158A01F92E1A900C55995 /* Main.storyboard */; };
 		BD7158A41F92E1A900C55995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7158A31F92E1A900C55995 /* Assets.xcassets */; };
 		BD7158A71F92E1A900C55995 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD7158A51F92E1A900C55995 /* LaunchScreen.storyboard */; };
+		BDA8F2951FB3551C005328A3 /* PhotoGalleryCropping.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA8F2941FB3551C005328A3 /* PhotoGalleryCropping.swift */; };
 		BDBD3E8D1FB0A16D00734EB0 /* CurrencyExchanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBD3E8C1FB0A16D00734EB0 /* CurrencyExchanger.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		BD7158A31F92E1A900C55995 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD7158A61F92E1A900C55995 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD7158A81F92E1A900C55995 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDA8F2941FB3551C005328A3 /* PhotoGalleryCropping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGalleryCropping.swift; sourceTree = "<group>"; };
 		BDBD3E8C1FB0A16D00734EB0 /* CurrencyExchanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchanger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 		BD71589B1F92E1A900C55995 /* Caculator_Final */ = {
 			isa = PBXGroup;
 			children = (
+				BDA8F2941FB3551C005328A3 /* PhotoGalleryCropping.swift */,
 				BD3684E81FB2D10700FC1B5A /* Resnet50.mlmodel */,
 				BD3684E61FB2265C00FC1B5A /* MobileNet.mlmodel */,
 				BD3684E41FB222E900FC1B5A /* GoogLeNetPlaces.mlmodel */,
@@ -170,6 +173,7 @@
 				BD3492771FB1D32F006D8345 /* MLViewController.swift in Sources */,
 				BDBD3E8D1FB0A16D00734EB0 /* CurrencyExchanger.swift in Sources */,
 				BD71589D1F92E1A900C55995 /* AppDelegate.swift in Sources */,
+				BDA8F2951FB3551C005328A3 /* PhotoGalleryCropping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
