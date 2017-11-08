@@ -23,9 +23,9 @@ struct CaculatorBrain{
         "tan":Operation.unaryOperation({tan($0)}),
         "cos":Operation.unaryOperation({cos($0)}),
         "sin":Operation.unaryOperation({sin($0)}),
-        "+/-":Operation.unaryOperation({-$0}),
         "√":Operation.unaryOperation({sqrt($0)}),
         "%":Operation.unaryOperation({$0/100}),
+        "+/-":Operation.specialOperation({-$0}),
         "=":Operation.equals
     ]
     private struct PendingBinaryOperation{
@@ -42,6 +42,7 @@ struct CaculatorBrain{
         case constant(Double)
         case binaryOperation((Double,Double)->Double)
         case unaryOperation((Double)->Double)
+        case specialOperation((Double)->Double)
         case equals
     }
     mutating func performOperation(_symbol:String){
@@ -77,6 +78,11 @@ struct CaculatorBrain{
                 }
             case .unaryOperation(let function):
                 accumlator = function(accumlator!)
+            case .specialOperation(let function):
+                if let currentNum = accumlator {
+                    accumlator = function(currentNum)
+                    
+                }
             case .equals:
                 performMultiplexerBinaryOperation()
                 performPendingBinaryOperation()

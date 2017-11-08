@@ -10,12 +10,13 @@ import UIKit
 
 class MLViewController: ViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
-    //let model = GoogLeNetPlaces()
-    //let model = MobileNet()
-    let model = Resnet50()
+    let googleModel = GoogLeNetPlaces()
+    let mobileModel = MobileNet()
+    let ResnetModel = Resnet50()
     let targetSize : CGSize = CGSize(width:224,height:224)
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,18 +32,53 @@ class MLViewController: ViewController,UIImagePickerControllerDelegate,UINavigat
     @IBAction func detectClick(_ sender: UIButton) {
         displayLabel.text = "Start to analyze the photo ..."
         
-        //let optionMenu = UIAlertController(title: nil,message: "Please choose your training model !", preferredStyle:.alert)
+        let optionMenu = UIAlertController(title: "Please choose your training model !",message:"You can choose the model to detect the photo. It will give you different result" , preferredStyle:.alert)
         
-        if let processedImage = ImageProcessor.pixelBuffer(forImage: (photoImageView.image?.cgImage)!){
-            guard let detectedImage = try? model.prediction(image: processedImage) else{
-                print("error")
-                displayLabel.text = "error: image size is incorrect "
-                return
+        let cancelAction = UIAlertAction(title:"Cancel",style:.cancel , handler:nil)
+        let googleNetPlaceAction = UIAlertAction(title:"GoogLeNetPlaces",style:.default,handler:{(action:UIAlertAction!) -> Void in
+            
+            if let processedImage = ImageProcessor.pixelBuffer(forImage: (self.photoImageView.image?.cgImage)!){
+                guard let detectedImage = try? self.googleModel.prediction(sceneImage: processedImage) else{
+                    print("error")
+                    self.displayLabel.text = "error: image size is incorrect "
+                    return
+                }
+                self.displayLabel.text = detectedImage.sceneLabel
+                
             }
-            displayLabel.text = detectedImage.classLabel
-        }
+        })
+        let mobileNetAction = UIAlertAction(title:"MobileNet",style:.default,handler:{(action:UIAlertAction!) -> Void in
+            
+            if let processedImage = ImageProcessor.pixelBuffer(forImage: (self.photoImageView.image?.cgImage)!){
+                guard let detectedImage = try? self.mobileModel.prediction(image: processedImage) else{
+                    print("error")
+                    self.displayLabel.text = "error: image size is incorrect "
+                    return
+                }
+                self.displayLabel.text = detectedImage.classLabel
+            }
+        })
+        
+        let resnet50Action = UIAlertAction(title:"Resnet50",style:.default,handler:{(action:UIAlertAction!) -> Void in
+            
+            if let processedImage = ImageProcessor.pixelBuffer(forImage: (self.photoImageView.image?.cgImage)!){
+                guard let detectedImage = try? self.ResnetModel.prediction(image: processedImage) else{
+                    print("error")
+                    self.displayLabel.text = "error: image size is incorrect "
+                    return
+                }
+                self.displayLabel.text = detectedImage.classLabel
+            }
+        })
+        
+        optionMenu.addAction(googleNetPlaceAction)
+        optionMenu.addAction(mobileNetAction)
+        optionMenu.addAction(resnet50Action)
+        optionMenu.addAction(cancelAction)
+        
+        present(optionMenu,animated: true,completion: nil)
+        
     }
-    
     
     @IBAction func imageTap(_ sender: UIButton) {
         let imagePickerController = UIImagePickerController()
@@ -54,6 +90,7 @@ class MLViewController: ViewController,UIImagePickerControllerDelegate,UINavigat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: {print("cancel")})
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let selectedImg = info[UIImagePickerControllerOriginalImage] as? UIImage else{
             
@@ -84,14 +121,6 @@ class MLViewController: ViewController,UIImagePickerControllerDelegate,UINavigat
         dismiss(animated: true, completion: {print("select image successfully")})
         
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
