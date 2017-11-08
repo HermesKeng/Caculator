@@ -56,7 +56,7 @@ class CurrencyExchanger{
             }
         }
         
-        return transformedDollar
+        return (transformedDollar*100).rounded()/100
     }
     
 }

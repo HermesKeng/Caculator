@@ -8,7 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BD235D1F1F93C73500D37621 /* CaculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD235D1E1F93C73500D37621 /* CaculatorBrain.swift */; };
+		BD3492771FB1D32F006D8345 /* MLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3492761FB1D32F006D8345 /* MLViewController.swift */; };
+		BD3684E51FB222E900FC1B5A /* GoogLeNetPlaces.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BD3684E41FB222E900FC1B5A /* GoogLeNetPlaces.mlmodel */; };
+		BD3684E71FB2265C00FC1B5A /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BD3684E61FB2265C00FC1B5A /* MobileNet.mlmodel */; };
+		BD3684E91FB2D10700FC1B5A /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BD3684E81FB2D10700FC1B5A /* Resnet50.mlmodel */; };
 		BD4387AC1FAF4FD0008240DF /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4387AB1FAF4FD0008240DF /* CurrencyViewController.swift */; };
+		BD5A23021FB218640006771C /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5A23011FB218630006771C /* ImageProcessor.swift */; };
 		BD71589D1F92E1A900C55995 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71589C1F92E1A900C55995 /* AppDelegate.swift */; };
 		BD71589F1F92E1A900C55995 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71589E1F92E1A900C55995 /* ViewController.swift */; };
 		BD7158A21F92E1A900C55995 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD7158A01F92E1A900C55995 /* Main.storyboard */; };
@@ -19,7 +24,12 @@
 
 /* Begin PBXFileReference section */
 		BD235D1E1F93C73500D37621 /* CaculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaculatorBrain.swift; sourceTree = "<group>"; };
+		BD3492761FB1D32F006D8345 /* MLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLViewController.swift; sourceTree = "<group>"; };
+		BD3684E41FB222E900FC1B5A /* GoogLeNetPlaces.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GoogLeNetPlaces.mlmodel; sourceTree = "<group>"; };
+		BD3684E61FB2265C00FC1B5A /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
+		BD3684E81FB2D10700FC1B5A /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 		BD4387AB1FAF4FD0008240DF /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		BD5A23011FB218630006771C /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		BD7158991F92E1A900C55995 /* Caculator_Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caculator_Final.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD71589C1F92E1A900C55995 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD71589E1F92E1A900C55995 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +70,9 @@
 		BD71589B1F92E1A900C55995 /* Caculator_Final */ = {
 			isa = PBXGroup;
 			children = (
+				BD3684E81FB2D10700FC1B5A /* Resnet50.mlmodel */,
+				BD3684E61FB2265C00FC1B5A /* MobileNet.mlmodel */,
+				BD3684E41FB222E900FC1B5A /* GoogLeNetPlaces.mlmodel */,
 				BD71589C1F92E1A900C55995 /* AppDelegate.swift */,
 				BD71589E1F92E1A900C55995 /* ViewController.swift */,
 				BD7158A01F92E1A900C55995 /* Main.storyboard */,
@@ -69,6 +82,8 @@
 				BD235D1E1F93C73500D37621 /* CaculatorBrain.swift */,
 				BD4387AB1FAF4FD0008240DF /* CurrencyViewController.swift */,
 				BDBD3E8C1FB0A16D00734EB0 /* CurrencyExchanger.swift */,
+				BD3492761FB1D32F006D8345 /* MLViewController.swift */,
+				BD5A23011FB218630006771C /* ImageProcessor.swift */,
 			);
 			path = Caculator_Final;
 			sourceTree = "<group>";
@@ -145,9 +160,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3684E91FB2D10700FC1B5A /* Resnet50.mlmodel in Sources */,
 				BD235D1F1F93C73500D37621 /* CaculatorBrain.swift in Sources */,
 				BD4387AC1FAF4FD0008240DF /* CurrencyViewController.swift in Sources */,
+				BD3684E71FB2265C00FC1B5A /* MobileNet.mlmodel in Sources */,
+				BD5A23021FB218640006771C /* ImageProcessor.swift in Sources */,
+				BD3684E51FB222E900FC1B5A /* GoogLeNetPlaces.mlmodel in Sources */,
 				BD71589F1F92E1A900C55995 /* ViewController.swift in Sources */,
+				BD3492771FB1D32F006D8345 /* MLViewController.swift in Sources */,
 				BDBD3E8D1FB0A16D00734EB0 /* CurrencyExchanger.swift in Sources */,
 				BD71589D1F92E1A900C55995 /* AppDelegate.swift in Sources */,
 			);
@@ -287,6 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6SD6S75P97;
 				INFOPLIST_FILE = Caculator_Final/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.edu.polyu.eie.EIE3109.17014888x.Caculator-Final";
@@ -301,6 +322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6SD6S75P97;
 				INFOPLIST_FILE = Caculator_Final/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.edu.polyu.eie.EIE3109.17014888x.Caculator-Final";
