@@ -4,6 +4,7 @@
 //  Created by Vincent Narbot on 7/23/15.
 //  Copyright (c) 2015 Vincent Narbot. All rights reserved.
 //  reference:https://github.com/VincentNarbot/PhotoGallery-to-Square
+//  some similar question we can found in https://stackoverflow.com/questions/28478293/losing-image-orientation-while-converting-an-image-to-cgimage
 
 import Foundation
 import UIKit
@@ -18,22 +19,27 @@ class PhotoGalleryCropping : NSObject {
 
         if width > height {
             //Landscape
-            positionX = -((height - width) / 2.0)
+            positionX = ((width - height ) / 2.0)
             width = height
         } 
         else if width < height {
             //Portrait
-            positionY = ((height - width) / 2.0)
+            positionX = ((height - width) / 2.0)
             height = width
         }
         else{
             //Already Square
         }
         
-        var cropSquare = CGRect(x:positionX,y:positionY,width:width,height:height)
+        let cropSquare = CGRect(x:positionX,y:positionY,width:width,height:height)
+        // Create the crop region
+        // It will lose the orientation when UIview is transfomed into CGView
+        let croppedImage = (image.cgImage?.cropping(to: cropSquare))!
         
-        
-        return UIImage(cgImage: (image.cgImage?.cropping(to: cropSquare))!, scale: 1.0, orientation:image.imageOrientation)
+        return UIImage(cgImage:croppedImage , scale: 1.0, orientation:image.imageOrientation)
+        // Creates a bitmap image using the data contained within a subregion of an existing bitmap image.
+        // Retrun A CGImage object specifies a subimage of the image
+        // If the rect parameter defines an area that is not in the image, then it returns null
     }
 
 }

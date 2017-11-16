@@ -97,8 +97,9 @@ class MLViewController: ViewController,UIImagePickerControllerDelegate,UINavigat
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         var resizeImg = PhotoGalleryCropping().cropToSquare(image:selectedImg)
+        
         let imageSize = resizeImg.size
-        print(imageSize.width,imageSize.height)
+        
         let widthRatio = targetSize.width / imageSize.width
         let heightRatio = targetSize.height / imageSize.height
         var newSize : CGSize
@@ -111,7 +112,7 @@ class MLViewController: ViewController,UIImagePickerControllerDelegate,UINavigat
         
         
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        selectedImg.draw(in: canvas)
+        resizeImg.draw(in: canvas)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         print(newImage?.size.width,newImage?.size.height)
