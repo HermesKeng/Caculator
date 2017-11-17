@@ -18,7 +18,7 @@ You only need to download the machine learning model what you want, convert it i
 MLkit supports many different kinds of appication, such as image detection, semantic analysis... and so on. 
 You can see the below picture, it is talking about what input data type supports in the MLkit, and what is the data type you have to be converted into before predicting</br>
 
-<img alt="MLkit Flow"src="https://github.com/HermesKeng/Caculator/blob/master/image/MLmodelFlow.png" >
+<img alt="MLkit Flow" src="https://github.com/HermesKeng/Caculator/blob/master/image/MLmodelFlow.png" >
 
 
 
