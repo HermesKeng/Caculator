@@ -34,10 +34,72 @@ From picture previously show, we can see each input has its own specific input d
 
 After you know the input format and detailed information in your app. We can start to build our app, and in your mind, you must have the below process when you design the program
   
- 1. Select the image from photo library
- 2. Transform the UIimage object into specific CVPixelBuffer object (Size is also the same)
+ 1. Select the image from photo library and resize the image into specific size
+ 2. Transform the UIimage object into specific CVPixelBuffer object
  3. Prediction
  4. Display the prediction result
+ 
+**1. Select the image from photo library and resize the image into specific size**
+
+ - For select the image from photo library, we use ***UIImagePickerControllerDelegate and UINavigationControllerDelegate*** to open the photo library, so you have to import it in the first controller line.
+ - You can drag the image view from your mainstory board, and also drag a button called ***import image*** on your storyboard
+ - Set up the **click action - imagetap** on your mainstory board, and link it on your button
+ - Now we are going to open the photo library. 
+   ```swift
+    let imagePickerController = UIImagePickerController() //new the UIImagePickerController
+        imagePickerController.sourceType = .photoLibrary // set up the photoLibrary
+        imagePickerController.delegate = self
+        present(imagePickerController,animated: true,completion: nil) // open the photoLibrary
+   ```
+ - Set up the ***cancel and finish action*** in photo Library
+   - **cancel : we only need to dismiss it**
+    ```swift
+      func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: {print("cancel")})
+    }
+    ```
+   - **finish : we have to select the image and resize it**
+    ```swift
+     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let selectedImg = info[UIImagePickerControllerOriginalImage] as? UIImage else{ 
+            // select the image, if it choose in fail, go to else statement
+            
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        var resizeImg = PhotoGalleryCropping().cropToSquare(image:selectedImg) 
+        // Because of size, we have to crop the image to square and resize it. 
+        // When we import the image, if the image is rectangle, we are going to crop the image to square size
+         
+         // start to resize the image 
+        let imageSize = resizeImg.size
+        let widthRatio = targetSize.width / imageSize.width
+        let heightRatio = targetSize.height / imageSize.height
+        var newSize : CGSize
+        if(widthRatio > heightRatio){
+            newSize = CGSize(width: widthRatio * imageSize.width , height: heightRatio * imageSize.height)
+        }else{
+            newSize = CGSize(width: widthRatio * imageSize.width , height: heightRatio * imageSize.height)
+        }
+        var canvas = CGRect(x: 0, y: 0, width: targetSize.width, height: targetSize.height)
+        
+        // draw the image, this one is in Core Graphic framework, we don't talk about now.
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        resizeImg.draw(in: canvas)
+        // Get the current context on image
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        //close the image 
+        UIGraphicsEndImageContext()
+        
+        // set up image on the imageView
+        photoImageView.image = newImage
+        displayLabel.text="Unprocessed Image"
+        dismiss(animated: true, completion: {print("select image successfully")})
+        
+    }
+
+    ```
+ 
+
 
 
 
